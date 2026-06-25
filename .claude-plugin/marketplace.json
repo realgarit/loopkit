@@ -1,0 +1,13 @@
+{
+  "name": "realgar-loopkit",
+  "owner": { "name": "realgarit" },
+  "description": "Personal marketplace for the loopkit build loop.",
+  "plugins": [
+    {
+      "name": "loopkit",
+      "source": "./plugins/loopkit",
+      "version": "0.1.0",
+      "description": "Autonomous backlog driven build loop for any repo."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "loopkit",
+  "displayName": "Loopkit",
+  "version": "0.1.0",
+  "description": "Autonomous build loop. Bootstrap a backlog driven loop in any repo, then run it with /loop. A maker builds one item, a separate checker grades it, and visual work waits for your sign off.",
+  "author": { "name": "realgarit" },
+  "keywords": ["loop", "automation", "backlog", "agent", "autonomous"]
+}
