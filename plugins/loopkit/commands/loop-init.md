@@ -36,7 +36,7 @@ writing anything. Do not guess silently. A wrong test command breaks the whole l
 
 Write these into the repo root.
 
-`loop.config.json`, with the real commands you confirmed:
+`loop.config.json`, with the real commands you settled:
 
 ```json
 {
@@ -95,15 +95,16 @@ Format:
 Box states:
 
 - `[ ]` not started. The loop can pick it.
-- `[~]` built, waiting for your eyes. Only `(visual)` and `(audio)` items land here. The loop will not pick it again, but it is not done until you sign off.
+- `[~]` built, waiting for your eyes. Review mode parks `(visual)` and `(audio)` items here until you sign off. Full autonomy signs them off itself and uses `[x]`.
 - `[!]` parked. A pass tried this and failed, so the loop set it aside with a reason and moved on. Full autonomy only. The loop skips it like `[~]`; a human or a later pass revisits it.
 - `[x]` done. A logic item the loop verified, or a visual item you signed off at a gate.
 
 How the loop uses this:
 
-- Pick the top `[ ]` item. Skip `[~]`. Tick a logic item `[x]` when a pass meets its done line.
-- A `(visual)` or `(audio)` item gets built then set to `[~]`. A human looks or listens before it counts.
-- A `(gate)` item ends an epic that has visual or audio work. The loop screenshots, lists that epic's `[~]` items, and stops for you to sign off.
+- Pick the top `[ ]` item. Skip `[~]` and `[!]`. Tick a logic item `[x]` when a pass meets its done line.
+- Full autonomy (default): a `(visual)` or `(audio)` item gets built, the checker agent signs off the look, and it goes to `[x]`. A `(gate)` is an epic checkpoint the agent clears before the loop moves on.
+- Review mode: a `(visual)` or `(audio)` item gets built then set to `[~]` for a human to look or listen. A `(gate)` makes the loop screenshot, list that epic's `[~]` items, and stop for you to sign off.
+- A failed pass parks its item `[!]` so the loop moves on (full autonomy), or stops the loop after two in a row (review mode).
 - Too big for one pass? Split it into smaller items first.
 - When the list runs thin, the loop finds its own polish and test work.
 

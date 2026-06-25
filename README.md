@@ -19,7 +19,7 @@ Run it with the built in loop:
 /loop /loopkit:build-loop
 ```
 
-No interval, so it self paces until the backlog is empty or it stops for you.
+No interval, so it self paces until the backlog is empty or it stops on a stall.
 
 ## Install
 
@@ -37,8 +37,8 @@ claude --plugin-dir plugins/loopkit
 ## Use it in a repo
 
 1. Open the repo in Claude Code.
-2. Run `/loopkit:loop-init` and confirm the commands it found.
-3. Fill `BACKLOG.md` with your features in build order.
+2. Run `/loopkit:loop-init`. It detects the commands, seeds a starter `BACKLOG.md`, and sets full autonomy by default (run `/loopkit:loop-init review` for stop-and-review).
+3. Edit `BACKLOG.md` to steer the work, or let the loop run with what it seeded.
 4. Run `/loop /loopkit:build-loop`.
 
 ## Backlog format
@@ -51,7 +51,7 @@ claude --plugin-dir plugins/loopkit
 Box states:
 
 - `[ ]` not started. The loop can pick it.
-- `[~]` built, waiting for review. Only `(visual)` and `(audio)` items.
+- `[~]` built, waiting for review. Review mode parks `(visual)` and `(audio)` items here; full autonomy signs off and goes to `[x]`.
 - `[!]` parked. A pass failed on it, so full autonomy set it aside. The loop skips it.
 - `[x]` done.
 
@@ -59,7 +59,7 @@ Box states:
 
 `loop-init` sets `ui` in `loop.config.json`.
 
-- UI repo: the loop screenshots visual items, marks them `[~]`, and stops at an epic `(gate)` for review. Needs a dev server and Playwright for the screenshots.
+- UI repo: the loop screenshots visual items and reviews them at epic `(gate)` checkpoints. In full autonomy the checker agent signs them off and clears the gate; in review mode they wait as `[~]` for a human at the gate. Needs a dev server and Playwright for the screenshots.
 - Logic only repo: no screenshots, no gates. Tests are the gate. Every item finishes on green.
 
 ## Rules
