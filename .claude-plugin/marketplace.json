@@ -6,8 +6,8 @@
     {
       "name": "loopkit",
       "source": "./plugins/loopkit",
-      "version": "0.1.0",
-      "description": "Autonomous backlog driven build loop for any repo."
+      "version": "0.2.0",
+      "description": "Fully autonomous backlog driven build loop for any repo."
     }
   ]
 }

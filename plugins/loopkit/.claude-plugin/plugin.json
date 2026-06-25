@@ -1,8 +1,8 @@
 {
   "name": "loopkit",
   "displayName": "Loopkit",
-  "version": "0.1.0",
-  "description": "An autonomous build loop. Bootstrap a backlog driven loop in any repo, then run it with /loop. A maker builds one item, a separate checker grades it, and visual work waits for your sign off.",
+  "version": "0.2.0",
+  "description": "A fully autonomous build loop. Bootstrap a backlog driven loop in any repo, then run it with /loop. A maker builds one item, a separate checker grades and signs it off, failed items park and the loop keeps going. Set autonomy to review for human sign-off at epic gates.",
   "author": { "name": "realgarit" },
   "homepage": "https://github.com/realgarit/loopkit",
   "repository": "https://github.com/realgarit/loopkit",
